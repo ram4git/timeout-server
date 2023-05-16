@@ -12,7 +12,6 @@ export const metadata = {
     "Server Components",
     "NextUI",
     "NextAuth",
-    "Prisma",
     "PostgreSQL",
     "OpenAI",
     "GPT",

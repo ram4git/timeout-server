@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import prisma from "@/lib/prisma";
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 export default async function handler(

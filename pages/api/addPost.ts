@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { getServerSession } from "next-auth/next";
-import prisma from "@/lib/prisma";
 import { authOptions } from "./auth/[...nextauth]";
 
 export default async function handler(
@@ -16,23 +15,10 @@ export default async function handler(
 
   const { user } = session;
   const { content } = req.body;
-  // Get user from database
-  const prismaUser = await prisma.user.findUnique({
-    where: { email: session?.user?.email || undefined },
-  });
+  // Get user from databas
+   try {
 
-  // Create post
-  try {
-    const body = req.body;
-
-    const result = await prisma.post.create({
-      data: {
-        content: content as string,
-        userId: prismaUser?.id as string,
-      },
-    });
-
-    return res.json(result);
+    return res.json({});
   } catch (err) {
     // console.log(err);
     res.status(402).json({ err: "Error has occured while making a post" });

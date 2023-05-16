@@ -1,14 +1,11 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import prisma from "@/lib/prisma";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   const userId = req.query.userId;
-  const user = await prisma.user.findUnique({
-    where: { id: userId as string },
-  });
+  const user = {id: 1, email: 'abc@a.com', subscriptionStatus: 'subscribed'};
 
   // Return user data, including the subscription status, in the response
   res.status(200).json({
