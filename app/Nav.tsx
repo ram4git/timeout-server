@@ -60,7 +60,7 @@ export default function Nav() {
           />
         </svg>
         <Text b color="inherit" hideIn="xs" style={{ paddingLeft: 10 }}>
-          Next.js 13 Demo App
+          Sonet Timeout App
         </Text>
       </Navbar.Brand>
       <Navbar.Content hideIn="xs">
@@ -92,30 +92,6 @@ export default function Nav() {
               href="/"
             >
               Home
-            </Link>
-          </Navbar.CollapseItem>
-          <Navbar.CollapseItem>
-            <Link
-              style={{
-                minWidth: "100%",
-                color: "inherit",
-                fontWeight: segment === "posts" ? "bold" : "normal",
-              }}
-              href="/posts"
-            >
-              Feed
-            </Link>
-          </Navbar.CollapseItem>
-          <Navbar.CollapseItem>
-            <Link
-              style={{
-                minWidth: "100%",
-                color: "inherit",
-                fontWeight: segment === "subscribe" ? "bold" : "normal",
-              }}
-              href="/subscribe"
-            >
-              Subscribe
             </Link>
           </Navbar.CollapseItem>
         </Navbar.Collapse>

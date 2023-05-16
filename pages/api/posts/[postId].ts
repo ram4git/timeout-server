@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "@/lib/prisma";
+const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 export default async function handler(
   req: NextApiRequest,
@@ -7,24 +8,8 @@ export default async function handler(
 ) {
   if (req.method === "GET") {
     try {
-      const data = await prisma.post.findUnique({
-        where: {
-          id: req.query.postId as string,
-        },
-        include: {
-          user: true,
-          likes: true,
-          comments: {
-            orderBy: {
-              createdAt: "desc",
-            },
-            include: {
-              user: true,
-            },
-          },
-        },
-      });
-      return res.status(200).json(data);
+      await sleep(1000);
+      return res.status(200).json([{id: 1, title: 'Delayed'}]);
     } catch (err) {
       res
         .status(403)

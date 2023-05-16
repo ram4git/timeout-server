@@ -23,10 +23,7 @@ export default function Feed({
         <Row>
           <Header />
         </Row>
-        <Row>
-          <AddPost />
-        </Row>
-
+        {!data.length ? <h1>Loading the posts... (takes 120 seconds)</h1> : null}
         {data?.map((post) => (
           <Post
             key={post.id}
